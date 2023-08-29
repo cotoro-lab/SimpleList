@@ -6,15 +6,54 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct BuyItemView: View {
     var message: String
+    var tag_id: Int32
     
     var body: some View {
-        Text(message)
-                    .padding()
-                    .background(Color.blue)
-                    .foregroundColor(.white)
+        GeometryReader{ geometry in
+            ZStack{
+                Rectangle()
+                    .fill(Color(UIColor(CustomColors.customOffWhite)))
+                    .cornerRadius(15)
+                HStack{
+                    ZStack(alignment: .trailing) {
+                        switch tag_id {
+                        case 1:
+                            Image("black_image")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: 45)
+                        case 2:
+                            Image("white_image")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: 45)
+                        case 3:
+                            Image("diagonal_line_image")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: 45)
+                        default:
+                            Image("diagonal_line_image")
+                                .resizable()
+                                .frame(width: geometry.size.width * 0.2, height: 45)
+                        }
+                        Rectangle()
+                            .fill(Color(UIColor(CustomColors.customGray)))
+                            .frame(width: 3)
+                    }
+                    Text(message)
+                        .foregroundColor(CustomColors.customGray)
+                        .frame(width: geometry.size.width * 0.7, alignment: .leading)
+                    
+                    Spacer()
+                }
+                .overlay(
+                    RoundedRectangle(cornerRadius: 15)  // 同じ角丸の設定
+                        .stroke(Color(UIColor(CustomColors.customGray)), lineWidth: 4)  // 線（ボーダー）の色と太さ
+                )
+                .cornerRadius(15)
+            }
+        }
     }
 }
-

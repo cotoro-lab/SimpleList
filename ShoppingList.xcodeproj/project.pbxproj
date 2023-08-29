@@ -12,6 +12,7 @@
 		2BC4C27D2A9B93ED0009A9F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */; };
 		2BC4C2802A9B93ED0009A9F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4C27F2A9B93ED0009A9F4 /* Preview Assets.xcassets */; };
 		2BC4C28B2A9BAC0A0009A9F4 /* BuyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C28A2A9BAC0A0009A9F4 /* BuyItemView.swift */; };
+		2BF135D92A9CE13100275D43 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF135D82A9CE13100275D43 /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BC4C27F2A9B93ED0009A9F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2BC4C28A2A9BAC0A0009A9F4 /* BuyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemView.swift; sourceTree = "<group>"; };
+		2BF135D82A9CE13100275D43 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				2BC4C28A2A9BAC0A0009A9F4 /* BuyItemView.swift */,
 				2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */,
 				2BC4C27E2A9B93ED0009A9F4 /* Preview Content */,
+				2BF135D82A9CE13100275D43 /* CustomColors.swift */,
 			);
 			path = ShoppingList;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				2BC4C27B2A9B93EC0009A9F4 /* ContentView.swift in Sources */,
 				2BC4C28B2A9BAC0A0009A9F4 /* BuyItemView.swift in Sources */,
+				2BF135D92A9CE13100275D43 /* CustomColors.swift in Sources */,
 				2BC4C2792A9B93EC0009A9F4 /* ShoppingListApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
