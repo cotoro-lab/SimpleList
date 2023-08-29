@@ -10,7 +10,11 @@ import SwiftUI
 // MainView
 struct ContentView: View {
     @State private var activie = false
-    @State private var backgroundColor = UIColor(CustomColors.customOffWhite)
+    @State private var backgroundColor = UIColor(CustomColors.customMyWhite)
+    
+    // モーダル表示の状態を管理する変数
+    @State var showAddModal = false
+    
     
     var body: some View {
         GeometryReader{ geometry in
@@ -21,9 +25,9 @@ struct ContentView: View {
                     VStack {
                         HStack{
                             Spacer()
-                            Text("Shopping List")
-                            .font(.title)
-                            .foregroundColor(CustomColors.customGray)
+                            //                            Text("List")
+                            //                            .font(.title)
+                            //                            .foregroundColor(CustomColors.customGray)
                             Spacer()
                             Button {
                                 activie.toggle()
@@ -41,23 +45,38 @@ struct ContentView: View {
                                 VStack{
                                     ForEach(1..<20) {
                                         let tag_num: Int32 = Int32(arc4random_uniform(3) + 1)
-                                      
-                                        BuyItemView(message: "\($0)hogehoge", tag_id: tag_num)
-                                            .frame(width: geometry.size.width * 0.8, height: 45)
+                                        
+                                        ListItemView(message: "\($0)hogehoge", tag_id: tag_num)
+                                            .frame(width: geometry.size.width * 0.8, height: 60)
                                     }
                                 }
                                 Spacer()
                             }
                         }
                         Button(action:{
+                            showAddModal = true
                             
                         }){
                             Image(systemName: "plus.circle")
                                 .foregroundColor(CustomColors.customGray)
                                 .font(Font.system(size:40))
                         }
-                    }
+                                            }
                     .padding()
+                    
+                    if showAddModal {
+                        Color.black.opacity(0.2)
+                            .edgesIgnoringSafeArea(.all)
+                            .onTapGesture{
+                                self.showAddModal = false
+                            }
+                        
+                        AddItemView(showAddModal: $showAddModal)
+                            .frame(width: geometry.size.width * 0.8,height: geometry.size.height * 0.3)
+                            .onTapGesture{
+                                self.showAddModal = false
+                            }
+                    }
                 }
                 .navigationDestination(isPresented: $activie, destination: {
                     HistoryView()
@@ -70,7 +89,7 @@ struct ContentView: View {
 //HistoryView
 struct HistoryView: View {
     @Environment(\.dismiss) var dismiss
-    @State private var backgroundColor = UIColor(CustomColors.customOffWhite)
+    @State private var backgroundColor = UIColor(CustomColors.customMyWhite)
 
     var body: some View {
         GeometryReader{ geometry in
@@ -89,8 +108,8 @@ struct HistoryView: View {
                                     VStack{
                                         ForEach(1..<20) {
                                             let tag_num: Int32 = Int32(arc4random_uniform(3) + 1)
-                                            BuyItemView(message: "\($0) hogehoge",tag_id: tag_num)
-                                                .frame(width: geometry.size.width * 0.8,height: 45)
+                                            ListItemView(message: "\($0) hogehoge",tag_id: tag_num)
+                                                .frame(width: geometry.size.width * 0.8,height: 60)
                                         }
                                     }
                                     Spacer()

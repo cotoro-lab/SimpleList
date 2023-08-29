@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-struct BuyItemView: View {
+struct ListItemView: View {
     var message: String
     var tag_id: Int32
     
@@ -16,7 +16,7 @@ struct BuyItemView: View {
         GeometryReader{ geometry in
             ZStack{
                 Rectangle()
-                    .fill(Color(UIColor(CustomColors.customOffWhite)))
+                    .fill(Color(UIColor(CustomColors.customMyWhite)))
                     .cornerRadius(15)
                 HStack{
                     ZStack(alignment: .trailing) {
@@ -24,19 +24,19 @@ struct BuyItemView: View {
                         case 1:
                             Image("black_image")
                                 .resizable()
-                                .frame(width: geometry.size.width * 0.2, height: 45)
+                                .frame(width: geometry.size.width * 0.2)
                         case 2:
                             Image("white_image")
                                 .resizable()
-                                .frame(width: geometry.size.width * 0.2, height: 45)
+                                .frame(width: geometry.size.width * 0.2)
                         case 3:
                             Image("diagonal_line_image")
                                 .resizable()
-                                .frame(width: geometry.size.width * 0.2, height: 45)
+                                .frame(width: geometry.size.width * 0.2)
                         default:
                             Image("diagonal_line_image")
                                 .resizable()
-                                .frame(width: geometry.size.width * 0.2, height: 45)
+                                .frame(width: geometry.size.width * 0.2)
                         }
                         Rectangle()
                             .fill(Color(UIColor(CustomColors.customGray)))

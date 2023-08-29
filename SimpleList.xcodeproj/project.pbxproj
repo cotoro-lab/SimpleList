@@ -7,21 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2BC4C2792A9B93EC0009A9F4 /* ShoppingListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C2782A9B93EC0009A9F4 /* ShoppingListApp.swift */; };
+		2BC4C2792A9B93EC0009A9F4 /* SimpleListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C2782A9B93EC0009A9F4 /* SimpleListApp.swift */; };
 		2BC4C27B2A9B93EC0009A9F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C27A2A9B93EC0009A9F4 /* ContentView.swift */; };
 		2BC4C27D2A9B93ED0009A9F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */; };
 		2BC4C2802A9B93ED0009A9F4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC4C27F2A9B93ED0009A9F4 /* Preview Assets.xcassets */; };
-		2BC4C28B2A9BAC0A0009A9F4 /* BuyItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C28A2A9BAC0A0009A9F4 /* BuyItemView.swift */; };
+		2BC4C28B2A9BAC0A0009A9F4 /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C28A2A9BAC0A0009A9F4 /* ListItemView.swift */; };
+		2BCA5F9C2A9E335000D5503F /* AddItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCA5F9B2A9E335000D5503F /* AddItemView.swift */; };
 		2BF135D92A9CE13100275D43 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF135D82A9CE13100275D43 /* CustomColors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2BC4C2752A9B93EC0009A9F4 /* ShoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2BC4C2782A9B93EC0009A9F4 /* ShoppingListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListApp.swift; sourceTree = "<group>"; };
+		2BC4C2752A9B93EC0009A9F4 /* SimpleList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC4C2782A9B93EC0009A9F4 /* SimpleListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleListApp.swift; sourceTree = "<group>"; };
 		2BC4C27A2A9B93EC0009A9F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2BC4C27F2A9B93ED0009A9F4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		2BC4C28A2A9BAC0A0009A9F4 /* BuyItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyItemView.swift; sourceTree = "<group>"; };
+		2BC4C28A2A9BAC0A0009A9F4 /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		2BCA5F9B2A9E335000D5503F /* AddItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemView.swift; sourceTree = "<group>"; };
 		2BF135D82A9CE13100275D43 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -39,7 +41,7 @@
 		2BC4C26C2A9B93EC0009A9F4 = {
 			isa = PBXGroup;
 			children = (
-				2BC4C2772A9B93EC0009A9F4 /* ShoppingList */,
+				2BC4C2772A9B93EC0009A9F4 /* SimpleList */,
 				2BC4C2762A9B93EC0009A9F4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,22 +49,23 @@
 		2BC4C2762A9B93EC0009A9F4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2BC4C2752A9B93EC0009A9F4 /* ShoppingList.app */,
+				2BC4C2752A9B93EC0009A9F4 /* SimpleList.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2BC4C2772A9B93EC0009A9F4 /* ShoppingList */ = {
+		2BC4C2772A9B93EC0009A9F4 /* SimpleList */ = {
 			isa = PBXGroup;
 			children = (
-				2BC4C2782A9B93EC0009A9F4 /* ShoppingListApp.swift */,
+				2BC4C2782A9B93EC0009A9F4 /* SimpleListApp.swift */,
 				2BC4C27A2A9B93EC0009A9F4 /* ContentView.swift */,
-				2BC4C28A2A9BAC0A0009A9F4 /* BuyItemView.swift */,
+				2BC4C28A2A9BAC0A0009A9F4 /* ListItemView.swift */,
 				2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */,
 				2BC4C27E2A9B93ED0009A9F4 /* Preview Content */,
 				2BF135D82A9CE13100275D43 /* CustomColors.swift */,
+				2BCA5F9B2A9E335000D5503F /* AddItemView.swift */,
 			);
-			path = ShoppingList;
+			path = SimpleList;
 			sourceTree = "<group>";
 		};
 		2BC4C27E2A9B93ED0009A9F4 /* Preview Content */ = {
@@ -76,9 +79,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2BC4C2742A9B93EC0009A9F4 /* ShoppingList */ = {
+		2BC4C2742A9B93EC0009A9F4 /* SimpleList */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2BC4C2832A9B93ED0009A9F4 /* Build configuration list for PBXNativeTarget "ShoppingList" */;
+			buildConfigurationList = 2BC4C2832A9B93ED0009A9F4 /* Build configuration list for PBXNativeTarget "SimpleList" */;
 			buildPhases = (
 				2BC4C2712A9B93EC0009A9F4 /* Sources */,
 				2BC4C2722A9B93EC0009A9F4 /* Frameworks */,
@@ -88,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = ShoppingList;
+			name = SimpleList;
 			productName = ShoppingList;
-			productReference = 2BC4C2752A9B93EC0009A9F4 /* ShoppingList.app */;
+			productReference = 2BC4C2752A9B93EC0009A9F4 /* SimpleList.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -108,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 2BC4C2702A9B93EC0009A9F4 /* Build configuration list for PBXProject "ShoppingList" */;
+			buildConfigurationList = 2BC4C2702A9B93EC0009A9F4 /* Build configuration list for PBXProject "SimpleList" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -121,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2BC4C2742A9B93EC0009A9F4 /* ShoppingList */,
+				2BC4C2742A9B93EC0009A9F4 /* SimpleList */,
 			);
 		};
 /* End PBXProject section */
@@ -144,9 +147,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC4C27B2A9B93EC0009A9F4 /* ContentView.swift in Sources */,
-				2BC4C28B2A9BAC0A0009A9F4 /* BuyItemView.swift in Sources */,
+				2BC4C28B2A9BAC0A0009A9F4 /* ListItemView.swift in Sources */,
 				2BF135D92A9CE13100275D43 /* CustomColors.swift in Sources */,
-				2BC4C2792A9B93EC0009A9F4 /* ShoppingListApp.swift in Sources */,
+				2BC4C2792A9B93EC0009A9F4 /* SimpleListApp.swift in Sources */,
+				2BCA5F9C2A9E335000D5503F /* AddItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +278,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShoppingList/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SimpleList/Preview Content\"";
 				DEVELOPMENT_TEAM = NS283PL3Q3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -303,7 +307,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"ShoppingList/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"SimpleList/Preview Content\"";
 				DEVELOPMENT_TEAM = NS283PL3Q3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -328,7 +332,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2BC4C2702A9B93EC0009A9F4 /* Build configuration list for PBXProject "ShoppingList" */ = {
+		2BC4C2702A9B93EC0009A9F4 /* Build configuration list for PBXProject "SimpleList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BC4C2812A9B93ED0009A9F4 /* Debug */,
@@ -337,7 +341,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2BC4C2832A9B93ED0009A9F4 /* Build configuration list for PBXNativeTarget "ShoppingList" */ = {
+		2BC4C2832A9B93ED0009A9F4 /* Build configuration list for PBXNativeTarget "SimpleList" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2BC4C2842A9B93ED0009A9F4 /* Debug */,
