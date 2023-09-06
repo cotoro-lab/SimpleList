@@ -9,10 +9,11 @@ import SwiftUI
 import UIKit
 
 struct ListItemView: View {
-    var message: String
-    var tag_id: Int32
+    var listItem: ListItemModel;
+    
     
     var body: some View {
+        
         GeometryReader{ geometry in
             ZStack{
                 Rectangle()
@@ -20,29 +21,14 @@ struct ListItemView: View {
                     .cornerRadius(15)
                 HStack{
                     ZStack(alignment: .trailing) {
-                        switch tag_id {
-                        case 1:
-                            Image("black_image")
-                                .resizable()
-                                .frame(width: geometry.size.width * 0.2)
-                        case 2:
-                            Image("white_image")
-                                .resizable()
-                                .frame(width: geometry.size.width * 0.2)
-                        case 3:
-                            Image("diagonal_line_image")
-                                .resizable()
-                                .frame(width: geometry.size.width * 0.2)
-                        default:
-                            Image("diagonal_line_image")
-                                .resizable()
-                                .frame(width: geometry.size.width * 0.2)
-                        }
+                        Image(ListItemViewModel().getTagImageName(tagid: listItem.listitem_tagno))
+                            .resizable()
+                            .frame(width: geometry.size.width * 0.2)
                         Rectangle()
                             .fill(Color(UIColor(CustomColors.customGray)))
-                            .frame(width: 3)
+                            .frame(width: 2)
                     }
-                    Text(message)
+                    Text(listItem.listitem_name)
                         .foregroundColor(CustomColors.customGray)
                         .frame(width: geometry.size.width * 0.7, alignment: .leading)
                     
