@@ -82,7 +82,7 @@ struct MainView: View {
                                 self.showAddModal = false
                             }
                         
-                        AddItemView(showAddModal: $showAddModal)
+                        AddItemView(showAddModal: $showAddModal, listItemViewModel: listItemViewModel)
                             .frame(width: geometry.size.width * 0.8,height: 150)
                         
                     }

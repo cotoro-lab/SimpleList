@@ -7,19 +7,21 @@
 
 import SwiftUI
 import UIKit
+import Foundation
 
 struct AddItemView: View {
     @Binding var showAddModal: Bool
+    @ObservedObject var listItemViewModel : ListItemViewModel
     
+    private let backgroundColor = UIColor(CustomColors.customMyWhite)
+    private let imageTags = ["gray_image", "white_image", "line_image"]
+    private let common = CommonClass()
+    
+//    @Environment(\.presentationMode) var presentationMode
     @State private var item_name = ""
-    @State private var backgroundColor = UIColor(CustomColors.customMyWhite)
-    @Environment(\.presentationMode) var presentationMode
     @State private var selectedTag: String = "gray_image"
-    let imageTags = ["gray_image", "white_image", "line_image"]
-    let common = CommonClass()
-    
+    @State private var showInsertAlert = false
     @State private var tagsNo: Int = 0
-    
     @State private var showingAlert = false
     
     var body: some View {
@@ -69,10 +71,26 @@ struct AddItemView: View {
                                     if let val = common.dicTags.first(where: { $0.value == selectedTag})?.key {
                                         tagsNo = val
                                     }
-//                                    mainViewModel.addMainModel(message:item_name, tag_num:tagsNo)
+                                    // 現在日を"yyyyMMddHHmmss"で取得
+                                    let dateTimeNow = common.getDateTimeNow()
+                                    
+                                    // INSERT
+                                    let insertItem = ItemDataStruct(item_id: 0, tag_no: tagsNo, item_name: item_name, create_date: dateTimeNow, archive_date: "", delete_flg: 0)
+                                    if !DBService.shared.isertItem(item: insertItem) {
+                                        showingAlert = true
+                                    }
+                                    var getid = DBService.shared.getMaxId()
+                                    var item_id = 0
+                                    listItemViewModel.addItem(itemId: item_id ?? 0, tagNo: tagsNo, itemName: item_name)
                                     // モーダルを閉じる
                                     self.showAddModal = false
                                 }
+                                .alert(isPresented: $showingAlert) {
+                                    Alert(title: Text("Data Error"),
+                                          message: Text("Adding Item failed."),
+                                          dismissButton: .default(Text("OK")))
+                                }
+                            
                             Text("Add")
                                 .foregroundColor(CustomColors.customGray)
                         }

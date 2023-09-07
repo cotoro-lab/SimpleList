@@ -12,7 +12,7 @@
 		2B23416D2AA440940005DDE2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23416A2AA440940005DDE2 /* HistoryView.swift */; };
 		2B59790B2A9F83E3005A300D /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59790A2A9F83E3005A300D /* AutoFocusTextField.swift */; };
 		2B8D2E692A9F8BB000684014 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E682A9F8BB000684014 /* CommonClass.swift */; };
-		2B8D2E6B2A9F8F9700684014 /* DBConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E6A2A9F8F9700684014 /* DBConnection.swift */; };
+		2B8D2E6B2A9F8F9700684014 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E6A2A9F8F9700684014 /* DBService.swift */; };
 		2B8D2E6D2A9F939800684014 /* ItemDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E6C2A9F939800684014 /* ItemDataStruct.swift */; };
 		2B8D2E6F2A9FAB4100684014 /* HistoryItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E6E2A9FAB4100684014 /* HistoryItemView.swift */; };
 		2BC4C2792A9B93EC0009A9F4 /* SimpleListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BC4C2782A9B93EC0009A9F4 /* SimpleListApp.swift */; };
@@ -31,7 +31,7 @@
 		2B23416A2AA440940005DDE2 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 		2B59790A2A9F83E3005A300D /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
 		2B8D2E682A9F8BB000684014 /* CommonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
-		2B8D2E6A2A9F8F9700684014 /* DBConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBConnection.swift; sourceTree = "<group>"; };
+		2B8D2E6A2A9F8F9700684014 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		2B8D2E6C2A9F939800684014 /* ItemDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataStruct.swift; sourceTree = "<group>"; };
 		2B8D2E6E2A9FAB4100684014 /* HistoryItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryItemView.swift; sourceTree = "<group>"; };
 		2BC4C2752A9B93EC0009A9F4 /* SimpleList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,7 +129,7 @@
 			children = (
 				2BF135D82A9CE13100275D43 /* CustomColors.swift */,
 				2B8D2E682A9F8BB000684014 /* CommonClass.swift */,
-				2B8D2E6A2A9F8F9700684014 /* DBConnection.swift */,
+				2B8D2E6A2A9F8F9700684014 /* DBService.swift */,
 				2B8D2E6C2A9F939800684014 /* ItemDataStruct.swift */,
 			);
 			path = Utilities;
@@ -210,7 +210,7 @@
 				2BC4C28B2A9BAC0A0009A9F4 /* ListItemView.swift in Sources */,
 				2B8D2E6F2A9FAB4100684014 /* HistoryItemView.swift in Sources */,
 				2B8D2E6D2A9F939800684014 /* ItemDataStruct.swift in Sources */,
-				2B8D2E6B2A9F8F9700684014 /* DBConnection.swift in Sources */,
+				2B8D2E6B2A9F8F9700684014 /* DBService.swift in Sources */,
 				2B59790B2A9F83E3005A300D /* AutoFocusTextField.swift in Sources */,
 				2B23416B2AA440940005DDE2 /* ContentView.swift in Sources */,
 				2B23416C2AA440940005DDE2 /* MainView.swift in Sources */,
