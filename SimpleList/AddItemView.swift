@@ -23,6 +23,8 @@ struct AddItemView: View {
     @State private var showInsertAlert = false
     @State private var tagsNo: Int = 0
     @State private var showingAlert = false
+    @State private var alertTitle: String = "Error"
+    @State private var alertMessage: String = "Error!!"
     
     var body: some View {
         GeometryReader{ geometry in
@@ -68,26 +70,38 @@ struct AddItemView: View {
                             Rectangle()
                                 .fill(Color(backgroundColor))
                                 .onTapGesture{
+                                    
+                                    if item_name == "" {
+                                        alertTitle = "Warning!!"
+                                        alertMessage = "The item is empty."
+                                        showingAlert = true
+                                        return
+                                    }
+                                    
                                     if let val = common.dicTags.first(where: { $0.value == selectedTag})?.key {
                                         tagsNo = val
                                     }
                                     // 現在日を"yyyyMMddHHmmss"で取得
-                                    let dateTimeNow = common.getDateTimeNow()
+                                    let dateTimeNow: String = common.getDateTimeNow()
                                     
                                     // INSERT
                                     let insertItem = ItemDataStruct(item_id: 0, tag_no: tagsNo, item_name: item_name, create_date: dateTimeNow, archive_date: "", delete_flg: 0)
                                     if !DBService.shared.isertItem(item: insertItem) {
+                                        alertTitle = "Data Error"
+                                        alertMessage = "Adding Item failed."
                                         showingAlert = true
+                                        return
                                     }
-                                    var getid = DBService.shared.getMaxId()
-                                    var item_id = 0
-                                    listItemViewModel.addItem(itemId: item_id ?? 0, tagNo: tagsNo, itemName: item_name)
+                                    // 登録した直後だから最大が自IDな想定
+                                    let getid: Int? = DBService.shared.getMaxId()
+                                    
+                                    listItemViewModel.addItem(itemId: getid ?? 0, tagNo: tagsNo, itemName: item_name)
                                     // モーダルを閉じる
                                     self.showAddModal = false
                                 }
                                 .alert(isPresented: $showingAlert) {
-                                    Alert(title: Text("Data Error"),
-                                          message: Text("Adding Item failed."),
+                                    Alert(title: Text(alertTitle),
+                                          message: Text(alertMessage),
                                           dismissButton: .default(Text("OK")))
                                 }
                             

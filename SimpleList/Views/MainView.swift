@@ -11,13 +11,9 @@ struct MainView: View {
     
     @State private var activie = false
     @State private var backgroundColor = UIColor(CustomColors.customMyWhite)
-    @ObservedObject var listItemViewModel : ListItemViewModel
-    
-    // モーダル表示の状態を管理する変数
     @State var showAddModal = false
     
-    // スワイプ用
-    @State var items = Array(1...20)
+    @ObservedObject var listItemViewModel : ListItemViewModel
     
     
     var body: some View {
@@ -39,31 +35,44 @@ struct MainView: View {
                             .padding(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 20))
                         }
                         
-                        List {
-                            ForEach(listItemViewModel.listItems) { item in
-                                ListItemView(listItem: item)
-                                    .frame(height: 60)
-                                    .listRowInsets(.init(top: 5, leading: 0, bottom: 5, trailing: 0))
-                                    .listRowBackground(CustomColors.customMyWhite)
-                                    .swipeActions(edge: .leading) {
-                                        Button(role: .destructive) {
-                                            print("flag action.")
-                                        } label: {
-                                            Image(systemName: "checkmark.square.fill")
+                        ZStack {
+                            List {
+                                ForEach(listItemViewModel.listItems) { item in
+                                    ListItemView(listItem: item)
+                                        .frame(height: 60)
+                                        .listRowInsets(.init(top: 5, leading: 0, bottom: 5, trailing: 0))
+                                        .listRowBackground(CustomColors.customMyWhite)
+                                        .swipeActions(edge: .leading) {
+                                            // archive
+                                            Button(role: .destructive) {
+                                                // Data Archiving
+                                                DBService.shared.ItemArchive(listItemM: item)
+                                                listItemViewModel.removeItem(item: item)
+                                            } label: {
+                                                Image(systemName: "checkmark.square.fill")
+                                            }
+                                            .tint(CustomColors.customGray)
                                         }
-                                        .tint(CustomColors.customGray)
-                                    }
-                                    .swipeActions(edge: .trailing) {
-                                        Button(role: .destructive) {
-                                            print("delete action.")
-                                        } label: {
-                                            Image(systemName: "trash.fill")
-                                        }.tint(CustomColors.customGray)
-                                    }
-                                
+                                        .swipeActions(edge: .trailing) {
+                                            // delete
+                                            Button(role: .destructive) {
+                                                // Data Deleting
+                                                DBService.shared.ItemDelete(listItemM: item)
+                                                listItemViewModel.removeItem(item: item)
+                                            } label: {
+                                                Image(systemName: "trash.fill")
+                                            }.tint(CustomColors.customGray)
+                                        }
+                                    
+                                }
+                            }
+                            .scrollContentBackground(.hidden)
+                            .background(CustomColors.customMyWhite)
+                            
+                            if listItemViewModel.listItems.count == 0 {
+                                CustomColors.customMyWhite.edgesIgnoringSafeArea(.all)
                             }
                         }
-                        .scrollContentBackground(.hidden)
                         
                         Button(action:{
                             showAddModal = true
@@ -88,7 +97,7 @@ struct MainView: View {
                     }
                 }
                 .navigationDestination(isPresented: $activie, destination: {
-                    HistoryView()
+                    HistoryView(HlistItemViewModel: HistoryListItemViewModel())
                 })
             }
         }

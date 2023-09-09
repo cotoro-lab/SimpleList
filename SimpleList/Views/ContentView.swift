@@ -9,9 +9,13 @@ import SwiftUI
 
 // MainView
 struct ContentView: View {
-   
+    
     var body: some View {
         MainView(listItemViewModel: ListItemViewModel())
+            .onAppear(){
+                print("アプリが開かれました。")
+                DBService.shared.FixTermRemoveRecord()
+            }
     }
 }
 

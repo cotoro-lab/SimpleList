@@ -37,6 +37,10 @@ final class DBService {
         }
     }
     
+    
+    /// ******************************
+    ///  テーブル作成
+    /// ******************************
     private func createTable() -> Bool {
         let createSql = """
         CREATE TABLE items (
@@ -105,8 +109,8 @@ final class DBService {
         // INSERTの実行
         if sqlite3_step(insertStmt) != SQLITE_DONE {
             print("db error: \(getDBErrorMessage(db))")
-                    sqlite3_finalize(insertStmt)
-                    return false
+            sqlite3_finalize(insertStmt)
+            return false
         }
         
         // INSERT終了処理
@@ -124,13 +128,15 @@ final class DBService {
         var sql = "SELECT "
         sql += "item_id, tag_no, item_name, create_date, archive_date, delete_flg "
         sql += "FROM items "
-        
+        sql += "WHERE delete_flg = 0"
         //　archiveFlg：0でメイン表示の対象を取得
         if archiveFlg == 0 {
-            sql += "WHERE archive_date = '';"
+            sql += " and archive_date = ''"
         }else{
-            sql += "WHERE archive_date <> '';"
+            sql += " and archive_date <> ''"
+            sql += "ORDER BY archive_date DESC"
         }
+        sql += ";"
         
         var stmt: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, (sql as NSString).utf8String, -1, &stmt, nil) == SQLITE_OK {
@@ -166,9 +172,90 @@ final class DBService {
         return(true, nil, selectedItems)
     }
     
-    // item_idの最大値を取得する。
+    /// ******************************
+    /// アーカイブ
+    /// ******************************
+    func ItemArchive(listItemM: ListItemModel){
+        let sql = """
+                    UPDATE items
+                    SET archive_date = ?
+                    WHERE item_id = ?
+                    and archive_date = ''
+                    and delete_flg = 0;
+                    """
+        let archiveDate: String = CommonClass().getDateTimeNow()
+        
+        var updateStmt: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, (sql as NSString).utf8String, -1, &updateStmt, nil) != SQLITE_OK {
+            print("db error: \(getDBErrorMessage(db))")
+        }
+        
+        sqlite3_bind_text(updateStmt, 1, (archiveDate as NSString).utf8String, -1, nil)
+        sqlite3_bind_int(updateStmt, 2, Int32(listItemM.listitem_itemid))
+        
+        if sqlite3_step(updateStmt) != SQLITE_DONE {
+            print("db error: \(getDBErrorMessage(db))")
+            sqlite3_finalize(updateStmt)
+        }
+        sqlite3_finalize(updateStmt)
+    }
+    
+    /// ******************************
+    // 論理削除
+    /// ******************************
+    func ItemDelete(listItemM: ListItemModel){
+        let sql = """
+                    UPDATE items
+                    SET delete_flg = 1
+                    WHERE item_id = ?
+                    and archive_date = ''
+                    and delete_flg = 0;
+                    """
+        
+        var updateStmt: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, (sql as NSString).utf8String, -1, &updateStmt, nil) != SQLITE_OK {
+            print("db error: \(getDBErrorMessage(db))")
+        }
+        
+        sqlite3_bind_int(updateStmt, 1, Int32(listItemM.listitem_itemid))
+        
+        if sqlite3_step(updateStmt) != SQLITE_DONE {
+            print("db error: \(getDBErrorMessage(db))")
+            sqlite3_finalize(updateStmt)
+        }
+        sqlite3_finalize(updateStmt)
+    }
+    
+    /// ******************************
+    /// 論理削除
+    /// 1ヶ月前のデータを物理削除する
+    /// ******************************
+    func FixTermRemoveRecord(){
+        
+        var sql = "DELETE FROM items "
+        sql += "WHERE ( archive_date <> '' AND archive_date <= " + CommonClass().getDTLastMonth() + ") "
+        sql += "OR ( delete_flg = 1 AND create_date <= " + CommonClass().getDTLastMonth() + " );"
+        
+        var updateStmt: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(db, (sql as NSString).utf8String, -1, &updateStmt, nil) != SQLITE_OK {
+            print("db error: \(getDBErrorMessage(db))")
+        }
+        
+        if sqlite3_step(updateStmt) != SQLITE_DONE {
+            print("db error: \(getDBErrorMessage(db))")
+            sqlite3_finalize(updateStmt)
+        }
+        sqlite3_finalize(updateStmt)
+    }
+    
+    /// ******************************
+    /// item_idの最大値を取得する。
+    /// ******************************
     func getMaxId() -> Int? {
-        var sql = "SELECT Max(item_id) FROM items ;"
+        let sql = "SELECT Max(item_id) FROM items ;"
         
         var stmt: OpaquePointer? = nil
         if sqlite3_prepare_v2(db, (sql as NSString).utf8String, -1, &stmt, nil) == SQLITE_OK {

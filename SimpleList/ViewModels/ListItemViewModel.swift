@@ -28,21 +28,6 @@ class ListItemViewModel: ObservableObject {
         } else {
             print(errorMessage ?? "Error")
         }
-        
-//        let items = Array(1...20);
-//        var itemid: Int = 0;
-//
-//        for item in items {
-//            let tag_num: Int = Int(arc4random_uniform(3) + 1)
-//
-//            listItems.append(ListItemModel(
-//                 listitem_itemid: itemid
-//                , listitem_tagno: tag_num
-//                , listitem_name: "\(item)hogehoge"
-//            ));
-//
-//            itemid = itemid + 1;
-//        }
     }
     
     func getTagImageName(tagid: Int) -> String {
@@ -63,5 +48,14 @@ class ListItemViewModel: ObservableObject {
         ));
         
     }
+    
+    func removeItem(item: ListItemModel) {
+        listItems.removeAll{
+            $0.listitem_itemid == item.listitem_itemid
+            && $0.listitem_tagno == item.listitem_tagno
+            && $0.listitem_name == item.listitem_name
+        }
+    }
+
     
 }
