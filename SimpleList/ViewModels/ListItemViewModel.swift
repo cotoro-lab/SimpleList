@@ -15,6 +15,7 @@ class ListItemViewModel: ObservableObject {
     let common = CommonClass();
     
     init() {
+        // 画面に表示するリストアイテムを全県取得しておく
         let (success, errorMessage, selectedItems) = DBService.shared.selectItem(archiveFlg: 0)
         if(success){
             for item in selectedItems {
@@ -30,16 +31,7 @@ class ListItemViewModel: ObservableObject {
         }
     }
     
-    func getTagImageName(tagid: Int) -> String {
-        var image_name: String = "gray_image"
-        
-        if let val = common.dicTags[tagid]{
-            image_name = val;
-        }
-        
-        return image_name;
-    }
-    
+    // 表示するリストアイテムのデータを追加するメソッド
     func addItem(itemId: Int ,tagNo: Int, itemName: String) {
         listItems.append(ListItemModel(
             listitem_itemid: itemId
@@ -49,6 +41,7 @@ class ListItemViewModel: ObservableObject {
         
     }
     
+    // 表示するリストアイテムのデータを削除するメソッド
     func removeItem(item: ListItemModel) {
         listItems.removeAll{
             $0.listitem_itemid == item.listitem_itemid
@@ -56,6 +49,4 @@ class ListItemViewModel: ObservableObject {
             && $0.listitem_name == item.listitem_name
         }
     }
-
-    
 }

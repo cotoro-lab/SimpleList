@@ -10,11 +10,12 @@ import SwiftUI
 //HistoryView
 struct HistoryView: View {
     @ObservedObject var HlistItemViewModel : HistoryListItemViewModel
-    private let common = CommonClass()
+    
+    @State private var backgroundColor = UIColor(CustomColors.customMyWhite)
     
     @Environment(\.dismiss) var dismiss
-    @State private var backgroundColor = UIColor(CustomColors.customMyWhite)
-
+    private let common = CommonClass()
+    
     var body: some View {
         GeometryReader{ geometry in
             NavigationStack {
@@ -23,6 +24,7 @@ struct HistoryView: View {
                         .ignoresSafeArea()
                     VStack{
                         HStack{
+                            // 戻るボタン
                             Button(
                                 action: {
                                     dismiss()
@@ -33,8 +35,9 @@ struct HistoryView: View {
                             )
                             .tint(CustomColors.customGray)
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: -45))
-                            
                             Spacer()
+                            
+                            // 履歴画面タイトル
                             Text("History")
                                 .font(.title)
                                 .foregroundColor(CustomColors.customGray)
@@ -43,6 +46,7 @@ struct HistoryView: View {
                         }
                         
                         ZStack{
+                            // 履歴アイテムリスト
                             List {
                                 ForEach(HlistItemViewModel.listItems) { item in
                                     HistoryItemView(HlistItem: item)
@@ -58,20 +62,6 @@ struct HistoryView: View {
                                 CustomColors.customMyWhite.edgesIgnoringSafeArea(.all)
                             }
                         }
-//
-//                        ScrollView{
-//                            HStack{
-//                                Spacer()
-//                                VStack{
-//                                    ForEach(1..<20) {
-//                                        let tag_num: Int32 = Int32(arc4random_uniform(3) + 1)
-//                                        HistoryItemView(message: "\($0) hogehoge",tag_id: tag_num)
-//                                            .frame(width: geometry.size.width * 0.8,height: 60)
-//                                    }
-//                                }
-//                                Spacer()
-//                            }
-//                        }.padding(.bottom)
                     }
                 }
             }
@@ -79,9 +69,3 @@ struct HistoryView: View {
         }
     }
 }
-
-//struct HistoryView_Preview: PreviewProvider {
-//    static var previews: some View {
-//        HistoryView()
-//    }
-//}

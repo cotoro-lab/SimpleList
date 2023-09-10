@@ -202,7 +202,7 @@ final class DBService {
     }
     
     /// ******************************
-    // 論理削除
+    /// 論理削除
     /// ******************************
     func ItemDelete(listItemM: ListItemModel){
         let sql = """
@@ -229,7 +229,7 @@ final class DBService {
     }
     
     /// ******************************
-    /// 論理削除
+    /// 物理削除
     /// 1ヶ月前のデータを物理削除する
     /// ******************************
     func FixTermRemoveRecord(){

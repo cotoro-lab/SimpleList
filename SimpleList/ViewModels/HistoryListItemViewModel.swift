@@ -14,6 +14,7 @@ class HistoryListItemViewModel: ObservableObject {
     let common = CommonClass();
     
     init() {
+        // 画面に表示するリストアイテムのデータを取得しておく
         let (success, errorMessage, selectedItems) = DBService.shared.selectItem(archiveFlg: 1)
         if(success){
             for item in selectedItems {

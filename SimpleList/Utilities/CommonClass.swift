@@ -10,6 +10,7 @@ import Foundation
 class CommonClass{
     public let dicTags : [Int: String] = [1: "gray_image", 2: "white_image", 3: "line_image"]
     
+    // タグの画像名を取得するメソッド
     func getTagImageName(tagid: Int) -> String {
         var image_name: String = "gray_image"
         
@@ -20,6 +21,7 @@ class CommonClass{
         return image_name;
     }
     
+    // 現在日時を取得するメソッド
     func getDateTimeNow() -> String{
         var strDatetimeNow: String = ""
         
@@ -54,6 +56,7 @@ class CommonClass{
         return oneMonthAgoString
     }
     
+    // 「MM/DD」形式で日にちを返すメソッド
     func convertToMMDD(from ymdhms: String) -> String {
         // 引数の長さが14文字でない場合はnilを返す
         guard ymdhms.count == 14 else {
@@ -76,6 +79,7 @@ class CommonClass{
         return dateFormatter.string(from: date)
     }
     
+    // 「HH:mm」で時間を返すメソッド
     func convertToHHMM(from ymdhms: String) -> String {
         // 引数の長さが14文字でない場合はnilを返す
         guard ymdhms.count == 14 else {

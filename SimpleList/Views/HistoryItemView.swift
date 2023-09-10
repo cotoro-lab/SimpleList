@@ -16,6 +16,7 @@ struct HistoryItemView: View {
     var body: some View {
         GeometryReader{ geometry in
             HStack(spacing: 0){
+                // アーカイブ日時表示欄
                 ZStack{
                     
                     Rectangle()
@@ -26,7 +27,9 @@ struct HistoryItemView: View {
                                 .stroke(Color(UIColor(CustomColors.customGray)), lineWidth: 4)  // 線（ボーダー）の色と太さ
                         )
                         .cornerRadius(15)
+                    
                     VStack(spacing: 0){
+                        // 日にち表示欄
                         Text(common.convertToMMDD(from: HlistItem.hli_archiveDate))
                             .font(.system(size: 14))
                             .foregroundColor(CustomColors.customGray)
@@ -36,6 +39,7 @@ struct HistoryItemView: View {
                             .fill(Color(UIColor(CustomColors.customGray)))
                             .frame(width: geometry.size.width * 0.15, height: 0.5)
                         
+                        // 時間表示欄
                         Text(common.convertToHHMM(from: HlistItem.hli_archiveDate))
                             .font(.system(size: 10))
                             .foregroundColor(CustomColors.customGray)
@@ -44,11 +48,13 @@ struct HistoryItemView: View {
                 }
                 .padding(EdgeInsets(top: 0, leading: 2, bottom: 0, trailing: 5))
                 
+                // アイテム情報表示欄
                 ZStack{
                     Rectangle()
                         .fill(Color(UIColor(CustomColors.customMyWhite)))
                         .cornerRadius(15)
                     HStack(spacing: 0){
+                        // タグ情報表示欄
                         ZStack(alignment: .trailing) {
                             Image(common.getTagImageName(tagid: HlistItem.hli_tagNo))
                                 .resizable()
@@ -58,7 +64,7 @@ struct HistoryItemView: View {
                                 .frame(width: 2)
                         }
                         
-                        
+                        // アイテム情報表示欄
                         Text(HlistItem.hli_name)
                             .foregroundColor(CustomColors.customGray)
                             .frame(width: geometry.size.width * 0.6, alignment: .leading)

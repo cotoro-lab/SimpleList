@@ -10,7 +10,6 @@
 		2B23416B2AA440940005DDE2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2341682AA440940005DDE2 /* ContentView.swift */; };
 		2B23416C2AA440940005DDE2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B2341692AA440940005DDE2 /* MainView.swift */; };
 		2B23416D2AA440940005DDE2 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B23416A2AA440940005DDE2 /* HistoryView.swift */; };
-		2B59790B2A9F83E3005A300D /* AutoFocusTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59790A2A9F83E3005A300D /* AutoFocusTextField.swift */; };
 		2B8D2E692A9F8BB000684014 /* CommonClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E682A9F8BB000684014 /* CommonClass.swift */; };
 		2B8D2E6B2A9F8F9700684014 /* DBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E6A2A9F8F9700684014 /* DBService.swift */; };
 		2B8D2E6D2A9F939800684014 /* ItemDataStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8D2E6C2A9F939800684014 /* ItemDataStruct.swift */; };
@@ -31,7 +30,6 @@
 		2B2341682AA440940005DDE2 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2B2341692AA440940005DDE2 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		2B23416A2AA440940005DDE2 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
-		2B59790A2A9F83E3005A300D /* AutoFocusTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoFocusTextField.swift; sourceTree = "<group>"; };
 		2B8D2E682A9F8BB000684014 /* CommonClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonClass.swift; sourceTree = "<group>"; };
 		2B8D2E6A2A9F8F9700684014 /* DBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBService.swift; sourceTree = "<group>"; };
 		2B8D2E6C2A9F939800684014 /* ItemDataStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDataStruct.swift; sourceTree = "<group>"; };
@@ -63,6 +61,7 @@
 		2B23416F2AA441280005DDE2 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2BCA5F9B2A9E335000D5503F /* AddItemView.swift */,
 				2B2341682AA440940005DDE2 /* ContentView.swift */,
 				2B23416A2AA440940005DDE2 /* HistoryView.swift */,
 				2B2341692AA440940005DDE2 /* MainView.swift */,
@@ -98,8 +97,6 @@
 				2BC4C2782A9B93EC0009A9F4 /* SimpleListApp.swift */,
 				2BC4C27C2A9B93ED0009A9F4 /* Assets.xcassets */,
 				2BC4C27E2A9B93ED0009A9F4 /* Preview Content */,
-				2BCA5F9B2A9E335000D5503F /* AddItemView.swift */,
-				2B59790A2A9F83E3005A300D /* AutoFocusTextField.swift */,
 			);
 			path = SimpleList;
 			sourceTree = "<group>";
@@ -219,7 +216,6 @@
 				2B8D2E6D2A9F939800684014 /* ItemDataStruct.swift in Sources */,
 				2BDD57762AACA57F008B1F68 /* HistoryListItemModel.swift in Sources */,
 				2B8D2E6B2A9F8F9700684014 /* DBService.swift in Sources */,
-				2B59790B2A9F83E3005A300D /* AutoFocusTextField.swift in Sources */,
 				2B23416B2AA440940005DDE2 /* ContentView.swift in Sources */,
 				2B23416C2AA440940005DDE2 /* MainView.swift in Sources */,
 				2BF135D92A9CE13100275D43 /* CustomColors.swift in Sources */,

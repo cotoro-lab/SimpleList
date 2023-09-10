@@ -11,6 +11,7 @@ import UIKit
 struct ListItemView: View {
     var listItem: ListItemModel;
     
+    private let common = CommonClass()
     
     var body: some View {
         
@@ -20,14 +21,16 @@ struct ListItemView: View {
                     .fill(Color(UIColor(CustomColors.customMyWhite)))
                     .cornerRadius(15)
                 HStack{
+                    // タグ表示欄
                     ZStack(alignment: .trailing) {
-                        Image(ListItemViewModel().getTagImageName(tagid: listItem.listitem_tagno))
+                        Image(common.getTagImageName(tagid: listItem.listitem_tagno))
                             .resizable()
                             .frame(width: geometry.size.width * 0.2)
                         Rectangle()
                             .fill(Color(UIColor(CustomColors.customGray)))
                             .frame(width: 2)
                     }
+                    // アイテム名表示欄
                     Text(listItem.listitem_name)
                         .foregroundColor(CustomColors.customGray)
                         .frame(width: geometry.size.width * 0.7, alignment: .leading)
